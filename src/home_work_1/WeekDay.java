@@ -23,10 +23,7 @@ public class WeekDay {
                 }
             }
                 if(answer.contains("False")||answer.contains("false")) {
-                    if (scan.hasNextBoolean()) {
                         Day.sleepIn(false, true);
-                    }
-
                 }
         }else {
             System.out.println("Вы ввели не логическое значение");
