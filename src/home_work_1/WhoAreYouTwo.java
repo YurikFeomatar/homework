@@ -5,7 +5,7 @@ import java.util.Scanner;
 
 public class WhoAreYouTwo {
     // Вариант с if else if;
-    public static boolean isDebugMode = true;
+    public static boolean isDebugMode = false;
 
     public static void main(String[] args) {
         checkStartDebugMod(args);
