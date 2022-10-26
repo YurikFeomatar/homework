@@ -1,6 +1,7 @@
 package home_work_1;
  import java.util.Scanner;
 public class WeekDay {
+
     public static void main(String[] args) {
         Scanner scan = new Scanner(System.in);
 
@@ -13,25 +14,30 @@ public class WeekDay {
                     String answer2 = scan.nextLine();
 
                     if (answer2.contains("False")||answer2.contains("false")) {
-                        Day.sleepIn(true, false);
+                        sleepIn(true, false);
                         return;
                     } else {
-                        Day.sleepIn(true, true);
+                        sleepIn(true, true);
                     }
                 }else{
                     System.out.println("Вы ввели не логическое значение");
                 }
             }
                 if(answer.contains("False")||answer.contains("false")) {
-                        Day.sleepIn(false, true);
+                        sleepIn(false, true);
                 }
         }else {
             System.out.println("Вы ввели не логическое значение");
         }
     }
-}
+    /**
+     * получаем два параметра в статический метод
+     * от заданного ответа из консоли выводим true or false ветки
+     * @param weekday
+     * @param vacation
+     * @return
+     */
 
-class Day {
     static boolean sleepIn(boolean weekday,boolean vacation) {
         if(weekday == true) {
             if (vacation != true) {

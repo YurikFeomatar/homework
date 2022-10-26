@@ -10,39 +10,31 @@ public class WhoAreYouThree {
 
         System.out.println("Введите ваше имя");
         String answer = scan.nextLine();
+        MyName(answer);
+
+    }
+
+    /**
+     * проходим првоерку в консоли и принимаем String имя в статический метод
+     * в зависимости от ответа позвращаем весту true or false
+     * использовались switch case
+     * @param answer
+     * @return
+     */
+    public static String MyName(String answer){
+        String name = answer;
         switch (answer){
-            case "Вася": ManThree.MyName();
+            case "Вася": System.out.println("Привет!\nЯ тебя так долго ждал.");
                 break;
-            case "вася": ManThree.MyName();
+            case "вася": System.out.println("Привет!\nЯ тебя так долго ждал.");
                 break;
-            case "Анастасия": WomanThree.MyName();
+            case "Анастасия": System.out.println("Я тебя так долго ждал.");
                 break;
-            case "анастасия": WomanThree.MyName();
+            case "анастасия": System.out.println("Я тебя так долго ждал.");
                 break;
-            default:
-                WtfThree.MyName();
+            default: System.out.println("Добрый день, а вы кто?");
                 break;
         }
-    }
-}
-class ManThree{
-    public static String MyName(){
-        String hisName = "Вася";
-        System.out.println("Привет!\nЯ тебя так долго ждал.");
-        return hisName;
-    }
-}
-class WomanThree{
-    public static String MyName(){
-        String herName = "Анастасия";
-        System.out.println("Я тебя так долго ждал.");
-        return herName;
-    }
-}
-class WtfThree{
-    public static String MyName(){
-        String wtfName = null ;
-        System.out.println("Добрый день, а вы кто?");
-        return wtfName;
+        return name;
     }
 }
