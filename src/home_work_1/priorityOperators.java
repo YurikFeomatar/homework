@@ -6,7 +6,7 @@ public class priorityOperators {
         int b1 = 2;
         int c = 8;
         int res1 = a1 +b1 / c;
-        System.out.println(res1); //Результат 5, т.к. на выходе получается дробное число (5.25), которое потерялось из за типа int.
+        System.out.println(res1); //Результат 5, т.к. на выходе получается дробное число (5.25), которое потерялось из за типа int..
 
         int a2 = 5;
         int b2 = 2;
