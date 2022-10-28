@@ -3,7 +3,7 @@ package home_work_1;
     import java.util.Scanner;
     //Попробовал вычислить двоичную c/с из числа 42.5.
     //Результатом стало то, что тип int ругался на дробь, прибегнув к очевидному преобразованию int x = (int)42.5, все сработало..
-public class bitAndOr {
+public class BitAndOr {
     public static void main(String[] args) {
         Scanner scan = new Scanner(System.in);
 

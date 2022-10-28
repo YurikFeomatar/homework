@@ -1,6 +1,6 @@
 package home_work_1;
 
-public class priorityOperators {
+public class PriorityOperators {
     public static void main(String[] args) {
         int a1 = 5;
         int b1 = 2;
