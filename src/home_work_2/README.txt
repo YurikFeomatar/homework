@@ -1,0 +1,15 @@
+loops/Factorial.java - задания 1.1 / 1.1.1;
+loops/MultiNumber.java - задания 1.2 / 1.2.1 / 1.2.2 / 1.2.3;
+loops/Exponenta.java - задания 1.3 / 1.3.1 / 1.3.2;
+loops/Ovweflow.java - задания 1.4 / 1.4.1 / 1.4.2 / 1.4.3 / 1.4.4;
+loops/NumberMax.java - задания 1.5 / 1.5.1 / 1.5.2 / 1.5.3 / 1.5.4 / 1.5.5 / 1.5.6;
+loops/MultiTable.java - задание 1.6;
+utils/ArraysUtils. java - задания 2.1 / 2.1.1 / 2.1.2;
+arrays/NewArray.java - задание 2.1.1.1;
+arrays/Rand.java - задание 2.1.2.1;
+arrays/ArraysIteration.java - задание 2.2 / 2.2.1 / 2.2.2 / 2.2.3;
+arrays/Interfacer.java
+arrays/SumOddNum.java - задание 2.4 / 2.4.1 / 2.4.2 / 2.4.3 / 2.4.4 / 2.4.5 / 2.4.6;
+utils/SortUtils.java - задание 4 / 4.1 / 4.1.1 / 4.1.2;
+sorts/SortsMain.java - задание 4.2 / 4.2.1 / 4.2.2 / 4.2.2.1 / 4.2.2.2 / 4.2.2.3 / 4.2.2.4 / 4.2.2.5 / 4.2.2.6 / 4.2.2.7;
+ShakerSort.drawio - задание 3 / 3.1 / 3.2;
