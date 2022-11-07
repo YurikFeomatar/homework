@@ -8,19 +8,17 @@ public class SumOddNum {
         for (int i = 0; i < container.length; i++) {
             System.out.print(container[i] + " ");
         }
-        //System.out.println("\n Сумма положительных четных элементов массива = " + oddEl(container));
-        //System.out.println("\n Максимальный четный элемент массива = " + maxEl(container));
-        //System.out.println("\n Элементы, значение которых меньше среднего арифметического элементов массива = "+ middleNum(container));
-        //System.out.println("\n Два минимальных элемена массива = " + minNum(container));
-        //deleteEl(container);
-        //System.out.print("Массив с обнуленным и перемещенным в конец диапазоном : ");
-        //for (int i = 0; i < container.length; i++) {
-            //System.out.print(container[i] + " ");
-        //}
+        System.out.println("\n Сумма положительных четных элементов массива = " + oddEl(container));
+        System.out.println("\n Максимальный четный элемент массива = " + maxEl(container));
+        System.out.println("\n Элементы, значение которых меньше среднего арифметического элементов массива = "+ middleNum(container));
+        System.out.println("\n Два минимальных элемена массива = " + minNum(container));
+        deleteEl(container);
+        System.out.print("Массив с обнуленным и перемещенным в конец диапазоном : ");
+        for (int i = 0; i < container.length; i++) {
+            System.out.print(container[i] + " ");
+        }
         System.out.println("\n Сумма цифр массива = " + SumNumArr(container));
-
     }
-
     /**
      *  метод oddEl выводит сумму положительных четных элементов массива.
      * @param array принимает массив arrayRandom
@@ -33,10 +31,8 @@ public class SumOddNum {
                 a = a + array[i];
             }
         }
-
         return a;
     }
-
     /**
      * метод maxEl находит максимальный четный элемент массива.
      * @param array принимает массив
@@ -53,7 +49,6 @@ public class SumOddNum {
         }
         return max;
     }
-
     /**
      * метод middleNum принимает массив и находит элементы, значение которых меньше среднего арифметического элементов массива.
      * @param array принимает массив.
@@ -72,7 +67,6 @@ public class SumOddNum {
         }
         return middle;
     }
-
     /**
      * метод minNum принимает массив и находит два минимальных значения в элементах массива.
      * @param array принимает массив с псевдослучайными числами.
@@ -93,7 +87,6 @@ public class SumOddNum {
         min =min1 + " и " + min2;
         return min;
     }
-
     /**
      * метод deleteEl принимает массив псевдорандомных элементов, обнуляет значения элементов в
      * диапазоне min / max и выносит их в конец массива.
@@ -117,7 +110,6 @@ public class SumOddNum {
         }
         return array;
     }
-
     /**
      * метод SumNumArr принимает массив, переводит его элементы в стоку и с помощью Character.getNumeriValue(charAt())
      * разделяет длину строки на символы, после чего сохраняет и плюсует цифры в Интовое число

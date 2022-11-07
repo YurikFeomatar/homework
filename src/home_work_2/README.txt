@@ -8,7 +8,7 @@ utils/ArraysUtils. java - задания 2.1 / 2.1.1 / 2.1.2;
 arrays/NewArray.java - задание 2.1.1.1;
 arrays/Rand.java - задание 2.1.2.1;
 arrays/ArraysIteration.java - задание 2.2 / 2.2.1 / 2.2.2 / 2.2.3;
-arrays/Interfacer.java
+arrays/Interfacer.java / DoWhile.java / For.java / ForEach.java / While.java/ MainLoops.java - задание 2.3 / 2.3.1 / 2.3.2 / 2.3.3;
 arrays/SumOddNum.java - задание 2.4 / 2.4.1 / 2.4.2 / 2.4.3 / 2.4.4 / 2.4.5 / 2.4.6;
 utils/SortUtils.java - задание 4 / 4.1 / 4.1.1 / 4.1.2;
 sorts/SortsMain.java - задание 4.2 / 4.2.1 / 4.2.2 / 4.2.2.1 / 4.2.2.2 / 4.2.2.3 / 4.2.2.4 / 4.2.2.5 / 4.2.2.6 / 4.2.2.7;

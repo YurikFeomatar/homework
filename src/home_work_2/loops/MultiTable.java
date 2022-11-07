@@ -8,14 +8,12 @@ public class MultiTable {
     public static void main(String[] args) {
        multitab();
     }
-
     /**
      * метод multiTab описывает и выдает таблицу умножения;
      * таблица разбита на 2 блока.
      * первый выводит умножения от 2 до 5
      * второй - от 6 до 9
      */
-
     public static void multitab(){
         System.out.println(ANSI_GREEN + "\t\t\tТАБЛИЦА\n \t\t\tУМНОЖЕНИЯ");
         System.out.println(ANSI_RESET + "____________________________________________");

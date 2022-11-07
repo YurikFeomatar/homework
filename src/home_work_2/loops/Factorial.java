@@ -5,7 +5,6 @@ import java.util.Scanner;
 public class Factorial {
     public static void main(String[] args) {
         Scanner scan = new Scanner(System.in);
-
         System.out.println("Введите число от 0 до 25");
         if (scan.hasNextLong()) {
             long number = scan.nextLong();

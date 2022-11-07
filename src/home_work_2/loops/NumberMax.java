@@ -1,6 +1,5 @@
 package home_work_2.loops;
     import java.util.Scanner;
-
 public class NumberMax {
     public static void main(String[] args) {
         Scanner scan = new Scanner(System.in);
@@ -18,7 +17,8 @@ public class NumberMax {
         int totalRes = 0;
         System.out.println("Из 1000 чисел четных было = " + vareblNum(totalRes));
         System.out.println("Таким образом, выясняется, что четные числа генерируются примерно 50/50% с нечетными");
-        System.out.println("Введите целое натуральное число");
+        System.out.println("_____________________________________________________________");
+        System.out.println("Введите целое натуральное число и мы покажем, сколько четных и нечетных цифр в числе");
         if(scan.hasNextInt()) {
             String number1 = scan.nextLine();
             System.out.println("В числе " + number1 + " четных цифр = " + oddOrEvenNumber(number1, "odd"));
@@ -43,7 +43,7 @@ public class NumberMax {
                 System.out.println("Введите шаг");
                 if(scan.hasNextInt()) {
                     int stepPoint = scan.nextInt();
-                    System.out.println(stepToStep(startPoint, finishPoint, stepPoint));
+                    stepToStep(startPoint, finishPoint, stepPoint);
                 }else{
                     System.out.println("Вы ввели не число");
                 }
@@ -53,7 +53,7 @@ public class NumberMax {
         }else{
             System.out.println("Вы ввели не число");
         }
-        System.out.println("Введите число, и мы его перевернем");
+        System.out.println("\nВведите число, и мы его перевернем");
         if(scan.hasNextInt()) {
             int revNum = scan.nextInt();
             System.out.println("Ваше число " + revNum + " наоборот = " + backNum(revNum));
@@ -88,6 +88,7 @@ public class NumberMax {
 
     public static Integer vareblNum(int num1) {
         int totalRes = 0;
+        int result = 0;
         int chi = 1000;
         for (int i = 0; i < chi; i++) {
             int num = (int) (Math.random() * 1000);
@@ -97,7 +98,6 @@ public class NumberMax {
         }
         return totalRes;
     }
-
     /**
      * OddOrEvenNumber принимает число введенное пользователем.
      * проверяем каждый символ на четность нечетность, заносим результат в результат.
@@ -123,7 +123,6 @@ public class NumberMax {
         }
         return result;
     }
-
     /**
      * метод fiboLine принимает число, и выводит на его основании количество чисел из ряда Фибоначчи.
      *
@@ -145,7 +144,6 @@ public class NumberMax {
         }
         return c;
     }
-
     /**
      * метод stepToStep принимает три значения: начальную точку, конечную точку, и шаг.
      * выдает шаги от старта до финиша.
@@ -154,21 +152,24 @@ public class NumberMax {
      * @param step
      * @return
      */
-
     public static Integer stepToStep(int start, int finish, int step){
         while(start < finish){
-            start = start + step;
-            System.out.print(start + " ");
+
+            if(start+step < finish) {
+                start = start + step;
+                System.out.print(start + " ");
+            }else {
+                System.out.println(finish);
+                start = finish;
+            }
         }
         return start;
     }
-
     /**
      * метод принимает Интовое число, в цикле его переворачивает с помощью другой переменной, в которую  и возвращает числа в обратном порядке в перевернутом виде.
      * @param reverseNum принимает число из консоли
      * @return возвращает перевернутое число
      */
-
     public static Integer backNum(int reverseNum){
         int reverseNumber = 0;
         while(reverseNum != 0){
