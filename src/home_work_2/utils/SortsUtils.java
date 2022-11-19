@@ -1,6 +1,6 @@
 package home_work_2.utils;
 
-public class SortsUtils {
+public class SortsUtils  {
     /**
      * метод sort принимает массив и сортирует его элементы по возрастанию, по принципу
      * пузырьковой сортировки (bubbleSort).
