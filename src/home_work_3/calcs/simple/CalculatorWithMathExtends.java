@@ -7,13 +7,13 @@ import home_work_3.calcs.api.ICalculator;
     *
     */
 public class CalculatorWithMathExtends extends CalculatorWithOperator implements ICalculator {
-        /**
+    /**
      * метод возводит в степень положительное число
      * @param a принимает значения типа double
      * @param x принимает значения типа double
      * @return возвращает число возведенное в степень типа double
      */
-        public double exponentiation(double a, double x){
+    public double exponentiation(double a, double x){
         double res5 = 0;
         if(a > 0) {
             res5 = Math.pow(a,x);
@@ -28,7 +28,7 @@ public class CalculatorWithMathExtends extends CalculatorWithOperator implements
          * @param x
          * @return
          */
-        public double getExponentiation(double a, double x){
+    public double getExponentiation(double a, double x){
             return exponentiation(a,x);
         }
 
@@ -63,7 +63,7 @@ public class CalculatorWithMathExtends extends CalculatorWithOperator implements
          * @param a
          * @return
          */
-        public double getSquareRoot(double a){
-            return squareRoot(a);
-        }
+    public double getSquareRoot(double a){
+        return squareRoot(a);
+    }
 }

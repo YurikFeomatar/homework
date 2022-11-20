@@ -4,57 +4,94 @@ import home_work_3.calcs.api.ICalculator;
 
 public class CalculatorWithMemory implements ICalculator {
 
-    ICalculator calc;
+    protected ICalculator calc;
     public CalculatorWithMemory(ICalculator calc){
         this.calc = calc;
     }
-    double saveResult;
+    protected double currentResult;
+    protected double memoryResult;
+    /**
+     *  метод делит числа
+     * @param d принимает значения типа double
+     * @param e принимает значения типа double
+     * @return возвращает деление чисел типа double
+     */
     @Override
-    public double division(double d, double e) {
-        saveResult = calc.division(d,e);
-        return calc.division(d,e);
+    public final double division(double d, double e) {
+        return currentResult = calc.division(d,e);
     }
-
+    /**
+     * метод умножает числа
+     * @param b принимает значения типа double
+     * @param c принимает значения типа double
+     * @return возвращает умножение чисел типа double
+     */
     @Override
-    public double multiplication(int b, double c) {
-        saveResult = calc.multiplication(b,c);
-        return calc.multiplication(b,c);
+    public final double multiplication(int b, double c) {
+        return currentResult = calc.multiplication(b,c);
     }
-
+    /**
+     * метод вычитает число из другого числа
+     * @param g принимает значения типа double
+     * @param l принимает значения типа double
+     * @return возвращает вычитание чисел типа double
+     */
     @Override
-    public double subtraction(double g, double l) {
-        saveResult = calc.subtraction(g,l);
-        return calc.subtraction(g,l);
+    public final double subtraction(double g, double l) {
+        return currentResult =  calc.subtraction(g,l);
     }
-
+    /**
+     * метод складывает числа
+     * @param x принимает значения типа double
+     * @param z принимает значения типа double
+     * @return возвращает сложение чисел типа double
+     */
     @Override
-    public double addition(double x, double z) {
-        saveResult = calc.addition(x,z);
-        return calc.addition(x,z);
+    public final double addition(double x, double z) {
+        return currentResult =  calc.addition(x,z);
     }
-
+    /**
+     * метод возводит в степень положительное число
+     * @param a принимает значения типа double
+     * @param x принимает значения типа double
+     * @return возвращает число возведенное в степень типа double
+     */
     @Override
-    public double exponentiation(double a, double x) {
-        saveResult = calc.exponentiation(a,x);
-        return calc.exponentiation(a,x);
+    public final double exponentiation(double a, double x) {
+        return currentResult =  calc.exponentiation(a,x);
     }
-
+    /**
+     *  метод находит модуль числа
+     * @param a принимает число типа double
+     * @return возвращает модуль числа
+     */
     @Override
-    public double module(double a) {
-        saveResult = calc.module(a);
-        return calc.module(a);
+    public final double module(double a) {
+        return currentResult =  calc.module(a);
     }
-
+    /**
+     * метод находит корень числа
+     * @param a принимает число типа double
+     * @return возвращает корень числа
+     */
     @Override
-    public double squareRoot(double a) {
-        saveResult = calc.squareRoot(a);
-        return calc.squareRoot(a);
+    public final double squareRoot(double a) {
+        return currentResult =  calc.squareRoot(a);
     }
+    /**
+     * метод сохраняет в себе информацию о последнем использовании калькулятора
+     */
     public void save(){
-    saveResult = saveResult;
-    return;
+        memoryResult = currentResult;
+        return;
     }
+    /**
+     * метод возвращает последнее использование калькулятора и обнуляет запись в save;
+     * @return
+     */
     public double getSaveResult(){
-       return saveResult;
+       double memory = memoryResult;
+       memoryResult = 0;
+       return memory;
     }
 }
