@@ -9,13 +9,13 @@ public class CalculatorWithMathExtendsMain {
         double stage1 = 0;
         double stage2 = 0;
         double stage3 = 0;
-        double result = 0;
+        double stage4 = 0;
         double totalResult = 0;
         stage1 = calc.getDivision(28,5);
-        stage2 = calc.getMultiplication(15,7);
-        stage3 = calc.getAddition(stage1,stage2);
-        result = calc.getAddition(stage3,4.1);
-        totalResult = calc.getExponentiation(result,2);
+        stage2 = calc.getExponentiation(stage1,2);
+        stage3 = calc.getMultiplication(15,7);
+        stage4 = calc.getAddition(stage2,4.1);
+        totalResult = calc.getAddition(stage3,stage4);
         System.out.println("результат = " + totalResult);
     }
 

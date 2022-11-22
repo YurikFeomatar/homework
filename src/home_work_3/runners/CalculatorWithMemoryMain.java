@@ -7,18 +7,14 @@ public class CalculatorWithMemoryMain {
     public static void main(String[] args) {
         CalculatorWithOperator calc1 = new CalculatorWithOperator();
         CalculatorWithMemory calc = new CalculatorWithMemory(calc1);
-        double stage1;
-        double stage2;
-        double stage3;
-        double result;
-        double totalResult;
-        stage1 = calc.division(28,5);
+        calc.division(28,5);
         calc.save();
-        stage2 = calc.multiplication(15,7);
-        stage3 = calc.addition(stage1,stage2);
-        result = calc.addition(stage3,4.1);
-        totalResult = calc.exponentiation(result,2);
-        System.out.println("totalResult = " + totalResult);
+        calc.exponentiation(calc.getSaveResult(),2);
+        calc.save();
+        calc.addition(calc.getSaveResult(),calc.multiplication(15,7));
+        calc.save();
+        calc.addition(calc.getSaveResult(),4.1);
+        calc.save();
         System.out.println("Сохраненный результат = " + calc.getSaveResult());
     }
 }

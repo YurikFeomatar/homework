@@ -32,3 +32,12 @@ runners.CalculatorWithCounterAutoCompositeInterfaceMain
 					задания 12 - 12.8
 calcs.additional.CalculatorWithMemory  
 runners.CalculatorWithMemoryMain 
+					задания 13 - 13.7.1
+calcs.additional.CalculatorWithCounterAutoDecorator
+calcs.additional.CalculatorWithMemoryDecorator
+runners.CalculatorDecoratorMain
+					задание 14 - не готово.
+runners.CalculatorStringExpressionMain
+api.IParsing
+calcs.additional.CalculatorStringExpression
+calcs.additional.CalculatorStringExpressionAdapter

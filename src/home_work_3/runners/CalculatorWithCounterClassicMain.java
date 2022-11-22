@@ -10,19 +10,14 @@ public class CalculatorWithCounterClassicMain {
         double stage1 = 0;
         double stage2 = 0;
         double stage3 = 0;
-        double result = 0;
+        double stage4 = 0;
         double totalResult = 0;
         stage1 = calc.getDivision(28,5);
-        calc.incrementCountOperation();
-        stage2 = calc.getMultiplication(15,7);
-        calc.incrementCountOperation();
-        stage3 = calc.getAddition(stage1,stage2);
-        calc.incrementCountOperation();
-        result = calc.getAddition(stage3,4.1);
-        calc.incrementCountOperation();
-        totalResult = calc.getExponentiation(result,2);
-        calc.incrementCountOperation();
-        System.out.println("totalResult = " + totalResult);
+        stage2 = calc.getExponentiation(stage1,2);
+        stage3 = calc.getMultiplication(15,7);
+        stage4 = calc.getAddition(stage2,4.1);
+        totalResult = calc.getAddition(stage3,stage4);
+        System.out.println("результат = " + totalResult);
         System.out.println("количество запусков = " + calc.getCountOperation());
 
 
