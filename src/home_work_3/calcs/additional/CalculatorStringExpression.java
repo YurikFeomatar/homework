@@ -10,7 +10,7 @@ public class CalculatorStringExpression implements IParsing {
 
     @Override
     public void parseStringToInt(String cons) {
-        /^\d{1,}$/
+        // /^\d{1,}$/
     }
 
     @Override
