@@ -15,11 +15,7 @@ public class CalculatorWithMathExtends extends CalculatorWithOperator implements
      */
     public double exponentiation(double a, double x){
         double res5 = 0;
-        if(a > 0) {
             res5 = Math.pow(a,x);
-        }else{
-            System.out.println("Введите положительное число");
-        }
         return res5;
     }
         /**

@@ -89,13 +89,9 @@ public class CalculatorWithOperator implements ICalculator {
      */
     public double exponentiation(double a, double x){
         double res5 = 0;
-        if(a > 0) {
             for (int i = 0; i < x; i++) {
                 res5 = a * a;
             }
-        }else{
-            System.out.println("Введите положительное число");
-        }
         return res5;
     }
     /**
