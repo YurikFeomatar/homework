@@ -6,7 +6,7 @@ import home_work_3.calcs.additional.CalculatorWithCounterClassic;
 
 public class CalculatorWithCounterClassicMain {
     public static void main(String[] args) {
-        CalculatorWithCounterClassic calc = new CalculatorWithCounterClassic();
+        final CalculatorWithCounterClassic calc = new CalculatorWithCounterClassic();
         double stage1 = 0;
         double stage2 = 0;
         double stage3 = 0;

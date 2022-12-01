@@ -12,8 +12,8 @@ public class SortsUtils  {
      *  искомого, то меняет их местами.
      * @param array принимает массив целочисленных элементов.
      */
-    public static void sort(int[] array){
-        int sort = 0;
+    public void sort(int[] array){
+        int sort;
         for (int i = 0; i < array.length -1; i++) {
             for (int j = array.length -1; j > i; j--) {
                 if(array[j -1] > array[j]) {
@@ -24,7 +24,6 @@ public class SortsUtils  {
             }
         }
     }
-
     /**
      * метод shake принимает массив, и сортирует его элементы по возрастанию, по принципу
      * Шейкерной сортировки (cocktailSort).
@@ -34,18 +33,20 @@ public class SortsUtils  {
      * далее, справа - налево: ищем минимальное значение и перемещаем его в начало массива,
      * уменьшая диапазон прочесывания массива min++;
      * и так до тех пор, пока min диапазона не дойдет до точки max, либо в массиве происходит перемещение элементов.
-     * @param array
+     * @param array массив
+     * @return отсортированный массив
      */
-    public static void shake(int[] array){
+    public int[] shake(int[] array){
         int min = 0;
         int max = array.length -1;
         int flag = 1;
-        while (min < max && flag > 0){
+        while ((min < max) && flag > 0){
             flag = 0;
             for (int i = min; i < max; i++) {
-                if(array[i] > array[i +1]){
+                if(array[i] > array[i + 1]){
                     int a = array[i];
-                    array[i -1] = a;
+                    array[i] = array[i +1];
+                    array[i + 1] = a;
                     flag = 1;
                 }
             }
@@ -54,11 +55,12 @@ public class SortsUtils  {
                 if(array[i] < array[i -1]){
                     int a = array[i];
                     array[i] = array[i -1];
-                    array[i -1] = a;
+                    array[i - 1] = a;
                     flag = 1;
                 }
             }
             min++;
         }
+        return array;
     }
 }

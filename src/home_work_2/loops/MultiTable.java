@@ -6,7 +6,8 @@ public class MultiTable {
     public static final   String ANSI_GREEN = "\u001B[32m";
 
     public static void main(String[] args) {
-       multitab();
+        final MultiTable tabe = new MultiTable();
+        tabe.multitab();
     }
     /**
      * метод multiTab описывает и выдает таблицу умножения;
@@ -14,7 +15,7 @@ public class MultiTable {
      * первый выводит умножения от 2 до 5
      * второй - от 6 до 9
      */
-    public static void multitab(){
+    public void multitab(){
         System.out.println(ANSI_GREEN + "\t\t\tТАБЛИЦА\n \t\t\tУМНОЖЕНИЯ");
         System.out.println(ANSI_RESET + "____________________________________________");
         for(int j = 1 ; j <= 10 ; j++) {

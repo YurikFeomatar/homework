@@ -3,11 +3,12 @@ package home_work_1;
 public class ToBinary {
 
     public static void main(String[] args) {
+        final ToBinary var = new ToBinary();
         Scanner scan = new Scanner(System.in);
         System.out.println("Введите число");
         if (scan.hasNextByte()) {
             byte number = scan.nextByte();
-            toBinaryString((byte) number);
+            var.toBinaryString((byte) number);
         } else {
             System.out.println("Введите число от -128 до 127");
         }
@@ -25,11 +26,12 @@ public class ToBinary {
  *
  */
     }
-    public static String reverseString(String str) {
+    public String reverseString(String str) {
         return new StringBuilder(str).reverse().toString();
     }
-    public static String toBinaryString(byte res) {
+    public String toBinaryString(byte res) {
         String totalRes = "";
+        String answer = "";
         byte b = 2;
         byte dop = res;
         Boolean flag = true;
@@ -48,7 +50,6 @@ public class ToBinary {
                 totalRes = totalRes + res % 2;
             }
             res = (byte) ((byte) res / b);
-            System.out.println(res);
         }
         if (flag == false) {
             if (res % 2 == 0) {
@@ -65,12 +66,11 @@ public class ToBinary {
                 }
             }
         }
-        System.out.println("Прямой код = " + reverseString(totalRes));
-        System.out.println("Обратный код = " + totalRes);
-        if(dop<0){
-            System.out.println("Дополнительный код = " + "1" + totalRes);
+        if(dop < 0){
+            answer = "Дополнительный код = " + "1" + totalRes;
+        }else{
+            answer = "Прямой код = " + reverseString(totalRes) + " " +  "Обратный код = " + totalRes;
         }
-
-        return null;
+        return answer;
     }
 }

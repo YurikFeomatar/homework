@@ -2,29 +2,33 @@ package home_work_2.arrays;
 
 public class ForEach implements Interfacer {
     @Override
-    public void runLoops(int[] array) {
-        System.out.println("\n\nВыводим итерацию массива при помощи foreach ");
+    public String runLoopsIter(int[] array) {
+        String result = "";
+        String text = "\nВыводим итерацию массива при помощи foreach ";
         for (int b : array) {
-            System.out.print(b + " ");
+            result = result + b + " ";
         }
-        System.out.println("\n\nВыводим каждый второй элемент массива при помощи foreach ");
+        return text + result;
+    }
+    public String runLoopsIterOdd(int[] array) {
+        String result = "";
+        String text = "\nВыводим каждый второй элемент массива при помощи foreach ";
         int x = 0;
         for (int b : array) {
-            if(x% 2 == 0) {
-                System.out.print(b + " ");
+            if (x % 2 == 0) {
+                result = result + b + " ";
             }
             x++;
         }
-        System.out.println("\n\nВыводим обратную итерацию массива при помощи foreach ");
-        int i = 0;
-        int[] revArr = new int[array.length];
-        i = array.length;
-        for (int b : array) {
-            i--;
-            revArr[i] = b;
+        return text + result;
+    }
+    public String runLoopsIterBackArray(int[] array) {
+        String result = "";
+        int b = array.length -1;
+        String text = "\nВыводим обратную итерацию массива при помощи foreach ";
+        for(int element : array){
+            result = result + array[b--] + " ";
         }
-        for (int c : revArr) {
-            System.out.print(c + " ");
-        }
+        return text + result;
     }
 }

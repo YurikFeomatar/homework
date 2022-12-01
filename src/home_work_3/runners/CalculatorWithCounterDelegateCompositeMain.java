@@ -4,7 +4,7 @@ import home_work_3.calcs.additional.CalculatorWithCounterAutoComposite;
 
 public class CalculatorWithCounterDelegateCompositeMain {
     public static void main(String[] args) {
-        CalculatorWithCounterAutoComposite calc = new CalculatorWithCounterAutoComposite();
+        final CalculatorWithCounterAutoComposite calc = new CalculatorWithCounterAutoComposite();
         double stage1;
         double stage2;
         double stage3;

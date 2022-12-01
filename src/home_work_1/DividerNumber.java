@@ -2,23 +2,18 @@ package home_work_1;
     import java.util.Scanner;
 public class DividerNumber {
     public static void main(String[] args) {
-        Scanner scan = new Scanner(System.in);
-
+        final DividerNumber div = new DividerNumber();
+        final Scanner scan = new Scanner(System.in);
         System.out.println("Введите первое число");
-        if (scan.hasNextDouble()) {
-            double num1 = scan.nextDouble();
-            if(num1!=0){
+        if (scan.hasNextInt()) {
+            int num1 = scan.nextInt();
+            if(num1!= 0){
                 System.out.println("Введите второе число");
-                if (scan.hasNextDouble()) {
-                    double num2 = scan.nextInt();
-                    if(num2!=0) {
+                if (scan.hasNextInt()) {
+                    int num2 = scan.nextInt();
+                    if(num2!= 0) {
                         System.out.println("Ваши числа " + num1 + " и " + num2);
-                        double res = num1/num2;
-                        if(num1 % num2 == 0){
-                            System.out.println("Первое число делится на второе без остатка. Результат равен " +(int)res);
-                        }else{
-                            System.out.println("Первое число не делится на второе без остатка. Результат равен " +res);
-                        }
+                        System.out.println(div.divider(num1,num2));
                     }else{
                         System.out.println("Вы ввели 0.");
                     }
@@ -30,6 +25,20 @@ public class DividerNumber {
             }
         }else{
             System.out.println("Вы ввели не целое число");
+        }
+    }
+
+    /**
+     * проверяет, делится ли число на второе без остатка
+     * @param num1 первое число
+     * @param num2 второе число
+     * @return строку с результатом
+     */
+    public String divider(int num1, int num2){
+        if(num1%num2 == 0){
+            return "Первое число делится на второе без остатка.";
+        }else{
+            return "Первое число не делится на второе без остатка.";
         }
     }
 }

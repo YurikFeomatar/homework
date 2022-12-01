@@ -8,8 +8,8 @@ public class ArraysUtils {
      * метод arrayFromConsole создает новый массив, запрашивая с консоли размер и просит его заполнить числами
      * @return возвращает заполненный массив.
      */
-    public static int[] arrayFromConsole(){
-        Scanner scan = new Scanner(System.in);
+    public int[] arrayFromConsole(){
+        final Scanner scan = new Scanner(System.in);
         System.out.println("Введите размер массива");
         int[] array = new int[scan.nextInt()];
         System.out.println("Заполните массив числами");
@@ -18,14 +18,13 @@ public class ArraysUtils {
         }
         return array;
     }
-
     /**
      * метод arrayRandom принимает массив с двумя параметрами и возвращает заполненный псевдорандомными числами
      * @param size принимает размер массива
      * @param maxValueExclusion заполняет массив псевдорандомными числами
      * @return возвращает заполненный псевдорандомными числами массив
      */
-    public static int[] arrayRandom(int size, int maxValueExclusion){
+    public int[] arrayRandom(int size, int maxValueExclusion){
         int[] array = new int[size];
         Random random = new Random();
         for (int i = 0; i < size; i++) {

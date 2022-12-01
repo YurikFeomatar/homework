@@ -4,19 +4,20 @@ import home_work_2.utils.ArraysUtils;
 
 public class ArraysIteration {
     public static void main(String[] args) {
-        int[] container = ArraysUtils.arrayFromConsole();
-        iteral(container);
-        iteralOdd(container);
-        backArray(container);
+        final ArraysIteration var = new ArraysIteration();
+        final ArraysUtils calc = new ArraysUtils();
+        final int[] container = calc.arrayFromConsole();
+        var.iteral(container);
+        var.iteralOdd(container);
+        var.backArray(container);
     }
     /**
      * метод itteral принимает массив, полученный из предыдущего метода ArraysUtils.arrayFromConsole()
      * и выводит элементы массива в консоль.
-     *
-     * @param array
+     * @param array массив
      * @return возвращает иттерацию.
      */
-    public static int[] iteral(int[] array) {
+    public int[] iteral(int[] array) {
         System.out.println("Выводим итерацию массива при помощи do while ");
         int i = 0;
         do {
@@ -44,7 +45,7 @@ public class ArraysIteration {
      * @param array принимает массив чисел
      * @return возвращает итерацию массива "каждый второй".
      */
-    public static int[] iteralOdd(int[] array) {
+    public int[] iteralOdd(int[] array) {
         System.out.println("\n\nВыводим каждый второй элемент массива при помощи do while ");
         int i = 0;
         do {
@@ -79,16 +80,12 @@ public class ArraysIteration {
     }
 
     /**
-     * метод backArray выводит с помощью четырех циклов обратную итерацию элементов массива.
-     * у Foreach прямого пути обработать массив в обратном направлении нет, поэтому создаем
-     * новый массив revArr[array.length], в который с помощью счетчика int i=array.length, ( i--)
-     * элементы массива array записывает с конца. И после этого уже через второй foreach
-     * выводим итерацию (обратного массива).
-     * по факту получается, что foreach работает по обычной итерации.
-     * @param array принимает массив чисел
-     * @return возвращает вывод массива с конца в начало.
+     * переделал свой forEach на forEach из лекции, (мой forEach создавал новый массив и обрабатывал обратную итерацию уже его.
+     *
+     * @param array массив int[]
+     * @return массив
      */
-    public static int[] backArray(int[] array){
+    public int[] backArray(int[] array){
         System.out.println("\n\nВыводим обратную итерацию массива при помощи do while ");
         int i = array.length -1;
         do {
@@ -105,16 +102,11 @@ public class ArraysIteration {
         for (i = array.length-1; i >= 0; i--) {
             System.out.print(array[i] + " ");
         }
-        int[] revArr = new int[array.length];
-        i = array.length;
-        for (int b : array) {
-            i--;
-            revArr[i] = b;
-        }
+        int b = array.length -1;
         System.out.println("\n\nВыводим обратную итерацию массива при помощи foreach ");
-        for (int c : revArr) {
-            System.out.print(c + " ");
+        for(int element : array){
+            System.out.print(array[b--] + " ");
         }
-        return revArr;
+        return array;
     }
 }

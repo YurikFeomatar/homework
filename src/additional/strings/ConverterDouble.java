@@ -4,19 +4,20 @@ import java.util.Scanner;
 
 public class ConverterDouble {
     public static void main(String[] args) {
-        Scanner scan = new Scanner(System.in);
+        final ConverterDouble var = new ConverterDouble();
+        final Scanner scan = new Scanner(System.in);
         System.out.println("Введите число от -999 999 999 до 999 999 999 с дробью до сотых,  и мы выведем его прописью");
             double number = scan.nextDouble();
             int numberNoDouble = (int) number;
             if (number >= (-999_999_999) && number <= 999_999_999) {
-                toString(numberNoDouble);
-                toStringDouble(number);
+                var.toString(numberNoDouble);
+                var.toStringDouble(number);
             } else {
                 System.out.println("Вы ввели число вне заданного диапазона");
             }
     }
-    public static void toStringDouble(double number){
-        String a = String.valueOf(number);
+    public void toStringDouble(double number){
+        final String a = String.valueOf(number);
             String numb = a.replaceAll("\\.", "");
             int totalRes = Integer.parseInt(numb);
             totalRes = totalRes % 100;
@@ -35,11 +36,11 @@ public class ConverterDouble {
             }
 
     }
-    public static void toString(int num) {
-        String[] twenty = {"", "один", "два", "три", "четыре", "пять", "шесть", "семь", "восемь", "девять", "десять", "одинадцать", "двенадцадь", "тринадцать", "четырнадцать", "пятнадцать", "шестнадцать", "семнадцать", "восемнадцать", "девятнадцать"};
-        String[] tens = {"", "десять", "двадцать", "тридцать", "сорок", "пятьдесят", "шестьдесят", "семьдесят", "восемьдесят", "девяносто"};
-        String[] hundreds = {"","сто","двести","триста","четыреста","пятьсот","шестьсот","семьсот","восемьсот","девятьсот"};
-        String[] oneTwo = {"","одна", "две","три", "четыре"};
+    public void toString(int num) {
+        final String[] twenty = {"", "один", "два", "три", "четыре", "пять", "шесть", "семь", "восемь", "девять", "десять", "одинадцать", "двенадцадь", "тринадцать", "четырнадцать", "пятнадцать", "шестнадцать", "семнадцать", "восемнадцать", "девятнадцать"};
+        final String[] tens = {"", "десять", "двадцать", "тридцать", "сорок", "пятьдесят", "шестьдесят", "семьдесят", "восемьдесят", "девяносто"};
+        final String[] hundreds = {"","сто","двести","триста","четыреста","пятьсот","шестьсот","семьсот","восемьсот","девятьсот"};
+        final String[] oneTwo = {"","одна", "две","три", "четыре"};
         boolean minus = false;
         if(num < 0){
             minus = true;

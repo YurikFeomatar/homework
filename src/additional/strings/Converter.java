@@ -3,12 +3,13 @@ package additional.strings;
 import java.util.Scanner;
 public class Converter {
     public static void main(String[] args) {
-        Scanner scan = new Scanner(System.in);
+        final Converter converter = new Converter();
+        final Scanner scan = new Scanner(System.in);
         System.out.println("Ввелите число от -999 999 999 до 999 999 999 и мы выведем его прописью");
         if (scan.hasNextInt()) {
             int number = scan.nextInt();
             if (number >= (-999_999_999) && number <= 999_999_999) {
-                toString(number);
+                converter.toString(number);
             } else {
                 System.out.println("Вы ввели число вне заданного диапазона");
             }
@@ -16,11 +17,11 @@ public class Converter {
             System.out.println("Вы ввели не число");
         }
     }
-    public static void toString(int num) {
-        String[] twenty = {"", "один", "два", "три", "четыре", "пять", "шесть", "семь", "восемь", "девять", "десять", "одинадцать", "двенадцадь", "тринадцать", "четырнадцать", "пятнадцать", "шестнадцать", "семнадцать", "восемнадцать", "девятнадцать"};
-        String[] tens = {"", "десять", "двадцать", "тридцать", "сорок", "пятьдесят", "шестьдесят", "семьдесят", "восемьдесят", "девяносто"};
-        String[] hundreds = {"","сто","двести","триста","четыреста","пятьсот","шестьсот","семьсот","восемьсот","девятьсот"};
-        String[] oneTwo = {"","одна", "две","три", "четыре"};
+    public void toString(int num) {
+        final String[] twenty = {"", "один", "два", "три", "четыре", "пять", "шесть", "семь", "восемь", "девять", "десять", "одинадцать", "двенадцадь", "тринадцать", "четырнадцать", "пятнадцать", "шестнадцать", "семнадцать", "восемнадцать", "девятнадцать"};
+        final String[] tens = {"", "десять", "двадцать", "тридцать", "сорок", "пятьдесят", "шестьдесят", "семьдесят", "восемьдесят", "девяносто"};
+        final String[] hundreds = {"","сто","двести","триста","четыреста","пятьсот","шестьсот","семьсот","восемьсот","девятьсот"};
+        final String[] oneTwo = {"","одна", "две","три", "четыре"};
         boolean minus = false;
         if(num < 0){
             minus = true;

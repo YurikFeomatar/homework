@@ -1,26 +1,36 @@
 package home_work_2.arrays;
 
 public class DoWhile implements Interfacer {
-    public void runLoops(int[] array){
-        System.out.println("Выводим итерацию массива при помощи do while ");
+    public String runLoopsIter(int[] array) {
+        String result = "";
+        String text = "Выводим итерацию массива при помощи do while ";
         int i = 0;
         do {
-            System.out.print(array[i] + " ");
+            result = result + array[i] + " ";
             i++;
         } while (array.length > i);
-        System.out.println("\n\nВыводим каждый второй элемент массива при помощи do while ");
-        i = 0;
+        return text + result;
+    }
+    public String runLoopsIterOdd(int[] array) {
+        String result = "";
+        String text = "\nВыводим каждый второй элемент массива при помощи do while ";
+        int i = 0;
         do {
-            if(i% 2 == 0) {
-                System.out.print(array[i] + " ");
+            if (i % 2 == 0) {
+                result = result + array[i] + " ";
             }
             i++;
-        } while (array.length > i );
-        System.out.println("\n\nВыводим обратную итерацию массива при помощи do while ");
-        i = array.length -1;
+        } while (array.length > i);
+        return text + result;
+    }
+    public String runLoopsIterBackArray(int[] array) {
+        String result = "";
+        String text = "\nВыводим обратную итерацию массива при помощи do while ";
+        int i = array.length -1;
         do {
-            System.out.print(array[i] + " ");
+            result = result + array[i] + " ";
             i--;
         } while (i >= 0 );
+        return text + result;
     }
 }

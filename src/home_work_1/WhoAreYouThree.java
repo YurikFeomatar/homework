@@ -2,37 +2,41 @@ package home_work_1;
 
 // вариант switch case
 
+import home_work_1.api.ICommunicationPrinter;
+
 import java.util.Scanner;
 
-public class WhoAreYouThree {
-    public static void main(String[] args) {
+public class WhoAreYouThree implements ICommunicationPrinter {
+    public String answer = "";
+    /**
+     * Выводит имя введенное в консоль
+     * @return строку с именем
+     */
+    public String myNamePrint(){
         Scanner scan = new Scanner(System.in);
-
         System.out.println("Введите ваше имя");
-        String answer = scan.nextLine();
-        MyName(answer);
-
+        answer = scan.nextLine();
+        return answer;
     }
-
     /**
      * проходим првоерку в консоли и принимаем String имя в статический метод
      * в зависимости от ответа позвращаем весту true or false
      * использовались switch case
-     * @param answer
-     * @return
+     * @param answer имя из консоли
+     * @return строку с именем
      */
-    public static String MyName(String answer){
-        String name = answer;
+    public String welcom(String answer){
+        String name;
         switch (answer){
-            case "Вася": System.out.println("Привет!\nЯ тебя так долго ждал.");
+            case "Вася": name = "Привет!\nЯ тебя так долго ждал.";
                 break;
-            case "вася": System.out.println("Привет!\nЯ тебя так долго ждал.");
+            case "вася": name = "Привет!\nЯ тебя так долго ждал.";
                 break;
-            case "Анастасия": System.out.println("Я тебя так долго ждал.");
+            case "Анастасия": name = "Я тебя так долго ждал.";
                 break;
-            case "анастасия": System.out.println("Я тебя так долго ждал.");
+            case "анастасия": name = "Я тебя так долго ждал.";
                 break;
-            default: System.out.println("Добрый день, а вы кто?");
+            default: name = "Добрый день, а вы кто?";
                 break;
         }
         return name;

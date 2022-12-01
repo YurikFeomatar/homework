@@ -1,26 +1,36 @@
 package home_work_2.arrays;
 
 public class While implements Interfacer {
-    public void runLoops(int[] array){
-        System.out.println("\n\nВыводим итерацию массива при помощи while ");
+    public String runLoopsIter(int[] array) {
+        String result = "";
+        String text = "\nВыводим итерацию массива при помощи while ";
         int i = 0;
         while (array.length > i) {
-            System.out.print(array[i] + " ");
+            result = result + array[i] + " ";
             i++;
         }
-        System.out.println("\n\nВыводим каждый второй элемент массива при помощи while ");
-        i = 0;
+        return text + result;
+    }
+    public String runLoopsIterOdd(int[] array) {
+        String result = "";
+        String text = "\nВыводим каждый второй элемент массива при помощи while ";
+        int i = 0;
         while (array.length > i) {
-            if(i% 2 == 0) {
-                System.out.print(array[i] + " ");
+            if (i % 2 == 0) {
+                result = result + array[i] + " ";
             }
             i++;
         }
-        System.out.println("\n\nВыводим обратную итерацию массива при помощи while ");
-        i = array.length -1;
+        return text + result;
+    }
+    public String runLoopsIterBackArray(int[] array) {
+        String result = "";
+        String text = "\nВыводим обратную итерацию массива при помощи while ";
+        int i = array.length -1;
         while (i >= 0) {
-            System.out.print(array[i] + " ");
+            result = result + array[i] + " ";
             i--;
         }
+        return text + result;
     }
 }

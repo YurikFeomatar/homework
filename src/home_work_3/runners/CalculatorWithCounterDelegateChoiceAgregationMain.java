@@ -12,7 +12,7 @@ public class CalculatorWithCounterDelegateChoiceAgregationMain {
         double stage4;
         double totalResult;
         {
-            CalculatorWithCounterAutoChoiceAgregation calc1 = new CalculatorWithCounterAutoChoiceAgregation(new CalculatorWithOperator());
+            final CalculatorWithCounterAutoChoiceAgregation calc1 = new CalculatorWithCounterAutoChoiceAgregation(new CalculatorWithOperator());
             stage1 = calc1.getDivisionCalc1(28,5);
             stage2 = calc1.getExponentiationCalc1(stage1,2);
             stage3 = calc1.getMultiplicationCalc1(15,7);
@@ -25,7 +25,7 @@ public class CalculatorWithCounterDelegateChoiceAgregationMain {
         System.out.println();
 
         {
-            CalculatorWithCounterAutoChoiceAgregation calc2 = new CalculatorWithCounterAutoChoiceAgregation(new CalculatorWithMathCopy());
+            final CalculatorWithCounterAutoChoiceAgregation calc2 = new CalculatorWithCounterAutoChoiceAgregation(new CalculatorWithMathCopy());
             stage1 = calc2.getDivisionCalc2(28,5);
             stage2 = calc2.getExponentiationCalc2(stage1,2);
             stage3 = calc2.getMultiplicationCalc2(15,7);
@@ -37,7 +37,7 @@ public class CalculatorWithCounterDelegateChoiceAgregationMain {
         System.out.println();
 
         {
-            CalculatorWithCounterAutoChoiceAgregation calc3 = new CalculatorWithCounterAutoChoiceAgregation(new CalculatorWithMathExtends());
+            final CalculatorWithCounterAutoChoiceAgregation calc3 = new CalculatorWithCounterAutoChoiceAgregation(new CalculatorWithMathExtends());
             stage1 = calc3.getDivisionCalc3(28,5);
             stage2 = calc3.getExponentiationCalc3(stage1,2);
             stage3 = calc3.getMultiplicationCalc3(15,7);

@@ -4,12 +4,13 @@ import home_work_3.calcs.simple.CalculatorWithOperator;
 
 public class CalculatorWithOperatorMain {
     public static void main(String[] args) {
-        double stage1 = 0;
-        double stage2 = 0;
-        double stage3 = 0;
-        double stage4 = 0;
-        double totalResult = 0;
         CalculatorWithOperator calc = new CalculatorWithOperator();
+        double stage1;
+        double stage2;
+        double stage3;
+        double stage4;
+        double totalResult = 0;
+
         stage1 = calc.getDivision(28,5);
         stage2 = calc.getExponentiation(stage1,2);
         stage3 = calc.getMultiplication(15,7);

@@ -2,11 +2,12 @@ package additional.strings;
 import java.util.Scanner;
 public class WeekDays {
     public static void main(String[] args) {
-        Scanner scan = new Scanner(System.in);
+        final WeekDays var = new WeekDays();
+        final Scanner scan = new Scanner(System.in);
         System.out.println("Введите количество дней и мы покажем сколько это недель");
         if(scan.hasNextInt()) {
             int days = scan.nextInt();
-            numToWeek(days);
+            var.numToWeek(days);
         }else{
             System.out.println("Вы ввели не число");
         }
@@ -17,7 +18,7 @@ public class WeekDays {
      * @param day принимает количество дней с консоли.
      * @return выдает строковое значение недель.
      */
-    public static String numToWeek(int day){
+    public String numToWeek(int day){
         String week = "";
         int weekD = 0;
         if(day > 0 ){

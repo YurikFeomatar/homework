@@ -1,47 +1,38 @@
 package home_work_1;
-
-
+import home_work_1.api.ICommunicationPrinter;
 import java.util.Scanner;
 
-public class WhoAreYouTwo {
-    public static boolean isDebugMode = false;
-
-    public static void main(String[] args) {// вариант if else if/;
-        checkStartDebugMod(args);
-        if(isDebugMode){
-            System.out.println("Начинаем дебажить");
-        }
+public class WhoAreYouTwo implements ICommunicationPrinter {
+    public String answer = "";
+  // вариант if else if/;
+    /**
+     * Выводит имя введенное в консоль
+     * @return строку с именем
+     */
+    public String myNamePrint(){
         Scanner scan = new Scanner(System.in);
         System.out.println("Введите ваше имя");
-        if (scan.hasNextLine()) {
-            String answer = scan.nextLine();
-            MyName(answer);
-        }
+        answer = scan.nextLine();
+        return answer;
     }
-
     /**
      * проходим првоерку в консоли и принимаем String имя в статический метод
      * в зависимости от ответа позвращаем весту true or false
-     * использовались if else if
-     * @param arr
+     * использовались switch case
+     * @param answer имя из консоли
+     * @return строку с именем
      */
-    public static void checkStartDebugMod (String[] arr){
-        for (String arg : arr) {
-            if ("debug".equalsIgnoreCase(arg)) {
-                isDebugMode = true;
-            }
-        }
-    }
-    public static String MyName(String answer){
+    @Override
+    public String welcom(String answer) {
         String name = answer;
         if (name.equals("Вася") || name.equals("вася")){
-            System.out.println("Привет!\nЯ тебя так долго ждал.");
+            name = "Привет!\nЯ тебя так долго ждал.";
         }else
         if(answer.equals("Анастасия") || answer.equals("анастасия")){
-            System.out.println("Я тебя так долго ждал.");
+            name = "Я тебя так долго ждал.";
         } else
         if(!answer.equals("Вася") && !answer.equals("вася") && !answer.equals("Анастасия") && !answer.equals("анастасия")) {
-            System.out.println("Добрый день, а вы кто?");
+            name =  "Добрый день, а вы кто?";
         }
         return name;
     }

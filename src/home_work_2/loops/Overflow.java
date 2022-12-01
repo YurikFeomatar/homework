@@ -5,53 +5,54 @@ public class Overflow {
      * @param args
      */
     public static void main(String[] args) {
-        long a = 1;
-        long b = 9_223_372_036_854_775_807L;
-        long c = -9_223_372_036_854_775_808L;
-        long d = 3;
-        long e = 188;
-        long f = -19;
+        final Overflow over = new Overflow();
+        final long a = 1;
+        final long num = 3;
+        System.out.println(over.overflowPlus(1,3));
+        System.out.println(over.overflowMinus(1,-19));
+    }
+
+    /**
+     * умножает одно положительное число на другое до переполнения
+     * @param a первый множитель
+     * @param num второй множитель
+     * @return строку с результатом
+     */
+    public String overflowPlus(long a, long num){
+        String resultBefore = "";
+        String resultAfter = "";
         for (int i = 1 ; a > 0 ; i++) {
-            a = a * d;
-            if(a * d < 0 && a > 0){
-                System.out.println("a * 3 до переполнения = " + a);
+            a = a * num;
+            if(a * num < 0 && a > 0){
+                resultBefore = "a * num до переполнения = " + a;
             }
         }
-        System.out.println("a * 3 после переполнения = " + a);
-
-
-        a = 1;
-        while(a > 0){
-            a = a * e;
-            if(a * e < 0 && a > 0){
-                System.out.println("a * 188 до переполнения = " + a);
-            }
-        }
-        System.out.println("a * 188 после переполнения = " + a);
-
-        a =1;
+        resultAfter = "a * num после переполнения = " + a;
+        return resultBefore + " \n" +  resultAfter;
+    }
+    /**
+     * умножает одно число на другое отрицательное до переполнения
+     * @param a первый множитель
+     * @param num второй множитель
+     * @return строку с результатом
+     */
+    public String overflowMinus(long a, long num){
+        String resultBefore = "";
+        String resultAfter = "";
         long r = 799006685782884121L;
         while (true) {
-            long res = a * f;
-            if (res/a==f) {
+            long res = a * num;
+            if (res/a==num) {
                 a = res;
                 if(res == r ) {
-                    System.out.println("a * -19 до переполнения = " + res);
+                    resultBefore = "a * num до переполнения = " + a;
                 }
             }
             else{
-                System.out.println("a * -19 после переполнения = " + res);
+                resultAfter = "a * num после переполнения = " + res;
                 break;
             }
         }
-        r =(long)(Math.random()*1000000);
-        a = 1;
-        while(a > 0){
-            a = a * r;
-            if(a * r < 0 && a > 0){
-                System.out.println("a * " + r + " до переполнения = " + a);
-            }
-        }
-        System.out.println("a * " + r + " после переполнения = " + a);
+        return resultBefore + " \n" +  resultAfter;
     }
 }

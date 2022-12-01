@@ -6,8 +6,8 @@ import home_work_3.calcs.simple.CalculatorWithOperator;
 
 public class CalculatorWithCounterAutoCompositeInterfaceMain {
     public static void main(String[] args) {
-        CalculatorWithOperator calc1 = new CalculatorWithOperator();
-        ICalculator calc = new CalculatorWithCounterAutoAgregationInterface(calc1);
+        final CalculatorWithOperator calc1 = new CalculatorWithOperator();
+        final ICalculator calc = new CalculatorWithCounterAutoAgregationInterface(calc1);
         double stage1;
         double stage2;
         double stage3;

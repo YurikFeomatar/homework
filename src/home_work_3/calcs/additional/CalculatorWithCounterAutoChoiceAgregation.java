@@ -8,14 +8,6 @@ public class CalculatorWithCounterAutoChoiceAgregation {
     public CalculatorWithOperator calc1;
     private CalculatorWithMathCopy calc2;
     private CalculatorWithMathExtends calc3;
-
-    /**
-     * пустой консруктор для удобвства создания экземпляров класса
-     */
-    public CalculatorWithCounterAutoChoiceAgregation(){
-
-    }
-
     /**
      * конструктор, содержащий в себе первый калькулятор типа CalculatorWithOperator
      * @param calc1

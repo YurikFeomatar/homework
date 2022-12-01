@@ -4,7 +4,7 @@ import home_work_3.calcs.additional.CalculatorWithCounterAutoAgregation;
 
 public class CalculatorWithCounterDelegateAgregationMain {
     public static void main(String[] args) {
-        CalculatorWithCounterAutoAgregation calc = new CalculatorWithCounterAutoAgregation();
+        final CalculatorWithCounterAutoAgregation calc = new CalculatorWithCounterAutoAgregation();
         double stage1;
         double stage2;
         double stage3;

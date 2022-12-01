@@ -4,42 +4,47 @@ import home_work_2.utils.ArraysUtils;
 
 public class SumOddNum {
     public static void main(String[] args) {
-        int[] container = ArraysUtils.arrayRandom(4,100);
+        final ArraysUtils calc = new ArraysUtils();
+        final SumOddNum printer = new SumOddNum();
+        final int[] container = calc.arrayRandom(4,100);
         for (int i = 0; i < container.length; i++) {
             System.out.print(container[i] + " ");
         }
-        System.out.println("\n Сумма положительных четных элементов массива = " + oddEl(container));
-        System.out.println("\n Максимальный четный элемент массива = " + maxEl(container));
-        System.out.println("\n Элементы, значение которых меньше среднего арифметического элементов массива = "+ middleNum(container));
-        System.out.println("\n Два минимальных элемена массива = " + minNum(container));
-        deleteEl(container);
+        System.out.println("\n Сумма положительных четных элементов массива = " + printer.oddEl(container));
+        System.out.println("\n Максимальный четный элемент массива = " + printer.maxEl(container));
+        System.out.println("\n Элементы, значение которых меньше среднего арифметического элементов массива = "+ printer.middleNum(container));
+        System.out.println("\n Два минимальных элемена массива = " + printer.minNum(container));
+        printer.deleteEl(container);
         System.out.print("Массив с обнуленным и перемещенным в конец диапазоном : ");
         for (int i = 0; i < container.length; i++) {
             System.out.print(container[i] + " ");
         }
-        System.out.println("\n Сумма цифр массива = " + SumNumArr(container));
+        System.out.println("\n Сумма цифр массива = " + printer.sumNumArr(container));
     }
     /**
      *  метод oddEl выводит сумму положительных четных элементов массива.
      * @param array принимает массив arrayRandom
      * @return возвращает сумму положительных элементов массива
      */
-    public static int oddEl(int[] array){
+    public String oddEl(int[] array){
         int a =0;
+        String result = "";
         for (int i = 0; i < array.length; i++) {
             if(array[i]% 2 ==0){
                 a = a + array[i];
             }
         }
-        return a;
+        result = String.valueOf(a);
+        return result;
     }
     /**
      * метод maxEl находит максимальный четный элемент массива.
      * @param array принимает массив
      * @return возвращает значение Max - максимальынй четный элемент массива
      */
-    public static int maxEl(int[] array) {
+    public String maxEl(int[] array) {
         int max = 0;
+        String result = "";
         for (int i = 0; i < array.length; i++) {
             if (array[i] % 2 == 0) {
                 if(max < array[i]){
@@ -47,14 +52,15 @@ public class SumOddNum {
                 }
             }
         }
-        return max;
+        result = String.valueOf(max);
+        return result;
     }
     /**
      * метод middleNum принимает массив и находит элементы, значение которых меньше среднего арифметического элементов массива.
      * @param array принимает массив.
      * @return возвращает строку с элементами, меньшими среднего арифметического элементов массива.
      */
-    public static String middleNum(int[] array){
+    public String middleNum(int[] array){
         String middle = "";
         int result = 0;
         for (int i = 0; i < array.length; i++) {
@@ -72,7 +78,7 @@ public class SumOddNum {
      * @param array принимает массив с псевдослучайными числами.
      * @return возвращает строку с двумя минимальными элементами массива.
      */
-    public static String  minNum(int[] array){
+    public String  minNum(int[] array){
         int min1 = array[0];
         int min2 = array[0];
         String min = "";
@@ -93,10 +99,10 @@ public class SumOddNum {
      * @param array принимает массив
      * @return возвращает массив с обнулением заданного диапазона и перемещением его в конец массива
      */
-    public static int[] deleteEl(int[] array){
-        Random rand = new Random();
-        int min = rand.nextInt(20);
-        int max = rand.nextInt(50);
+    public int[] deleteEl(int[] array){
+        //Random rand = new Random();
+        int min = 3;//rand.nextInt(20);
+        int max = 6;//rand.nextInt(50);
         int c = 0;
         for (int i = 0; i < array.length; i++) {
             if(i >=min && i <=max) {
@@ -116,7 +122,7 @@ public class SumOddNum {
      * @param array принимает массив.
      * @return возвращает сумму цифр массива в int.
      */
-    public static int SumNumArr(int[] array){
+    public int sumNumArr(int[] array){
         String numb = "";
         int result = 0;
         for (int j = 0; j < array.length; j++) {

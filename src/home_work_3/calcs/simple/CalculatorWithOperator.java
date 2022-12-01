@@ -109,11 +109,10 @@ public class CalculatorWithOperator implements ICalculator {
      * @return возвращает модуль числа
      */
     public double module(double a){
-        double res6 = 0;
-        if(a > 0){
-            res6 *= -1;
+        if(a < 0){
+            a *= -1;
         }
-        return res6;
+        return a;
     }
     /**
      * метод возвращает модуль числа (getter)

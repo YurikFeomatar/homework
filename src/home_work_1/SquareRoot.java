@@ -2,26 +2,49 @@ package home_work_1;
 
 public class SquareRoot {
     public static void main(String[] args) {
-        int a =(int) (Math.random() * 10);
-        int b =(int) (Math.random() * 10);
-        int c =(int) (Math.random() * 10);
+        final SquareRoot var = new SquareRoot();
+        final int a =(int) (Math.random() * 10);
+        final int b =(int) (Math.random() * 10);
+        final int c =(int) (Math.random() * 10);
         System.out.println("a= "+ a + " / " + "b= "+ b + " / " + "c= " + c);
+        System.out.println("Дискриминант = " + var.dis(a,b,c));
+        System.out.println(var.squareRoot(var.dis(a,b,c),a,b));
 
+    }
+
+    /**
+     * вычисляет дискриминант
+     * @param a первое число
+     * @param b второе число
+     * @param c третье число
+     * @return строку с дискриминантом
+     */
+    public double dis(int a, int b, int c){
         double d =(b * b) - (4 * a * c);
-        System.out.println("Дискриминант = " + d);
-        if(d>=0){
-            if(d==0) {
+        return d;
+    }
+
+    /**
+     * вычисляет кв корень уравнения
+     * @param d дискриминант
+     * @param a первое число
+     * @param b второе число
+     * @return строку с результатом
+     */
+    public String squareRoot(double d, int a,int b){
+        if(d >= 0){
+            if(d == 0) {
                 double x1 = (-b + (Math.sqrt(d))) / (2 * a);
-                System.out.println("Дискриминант равен 0. Корень квадратного уравнения = " + x1);
+                return "Дискриминант равен 0. Корень квадратного уравнения = " + x1;
             }
-            if(d!=0) {
+            if(d != 0) {
                 double x1 = (-b + (Math.sqrt(d))) / (2 * a);
-                System.out.println("Первый корень квадратного уравнения = " + x1);
                 double x2 = (-b - (Math.sqrt(d))) / (2 * a);
-                System.out.println("Второй корень квадратного уравнения = " + x2);
+                return "Первый корень квадратного уравнения = " + x1 + " Второй корень квадратного уравнения = " + x2;
             }
         } else{
-            System.out.println("Дискриминант отрицательный. Уравенение не имеет корней");
-            }
+            return "Дискриминант отрицательный. Уравенение не имеет корней";
+        }
+        return "";
     }
 }

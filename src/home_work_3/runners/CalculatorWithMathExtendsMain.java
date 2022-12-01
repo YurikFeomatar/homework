@@ -5,7 +5,7 @@ import home_work_3.calcs.simple.CalculatorWithOperator;
 
 public class CalculatorWithMathExtendsMain {
     public static void main(String[] args) {
-        CalculatorWithMathExtends calc = new CalculatorWithMathExtends();
+        final CalculatorWithMathExtends calc = new CalculatorWithMathExtends();
         double stage1 = 0;
         double stage2 = 0;
         double stage3 = 0;

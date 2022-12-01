@@ -3,7 +3,8 @@ import java.text.SimpleDateFormat;
 import java.util.Scanner;
 public class ConverterMilliseconds {
     public static void main(String[] args) {
-        Scanner scan = new Scanner(System.in);
+        final ConverterMilliseconds var = new ConverterMilliseconds();
+        final Scanner scan = new Scanner(System.in);
         System.out.println("Введите миллисекунды");
         if(scan.hasNextLong()){
             long mil = scan.nextLong();
@@ -11,7 +12,7 @@ public class ConverterMilliseconds {
                 System.out.println("хотите выбрать shortFormat? *true / false*");
                 if (scan.hasNextBoolean()) {
                     boolean shortFormat = scan.nextBoolean();
-                    System.out.println(toHoursMinuteSecondMillisecond(mil, shortFormat));
+                    System.out.println(var.toHoursMinuteSecondMillisecond(mil, shortFormat));
                 } else {
                     System.out.println("вы ввели не true/false");
                 }
@@ -29,7 +30,7 @@ public class ConverterMilliseconds {
      * @param shortFormat вариант формата записи (boolean)
      * @return отформатированную строку с DATE;
      */
-    public static String toHoursMinuteSecondMillisecond(long millisecond, boolean shortFormat){
+    public String toHoursMinuteSecondMillisecond(long millisecond, boolean shortFormat){
         long millisec = millisecond % 1000;
         String millisecName = " ";
         long seconds = (millisecond / 1000) % 60;
@@ -90,7 +91,7 @@ public class ConverterMilliseconds {
                    if (millisecond == 0 || millisecond >= 5 && millisecond <= 20 || millisecond >= 25 && millisecond <= 30 || millisecond >= 35
                            && millisecond <= 40 || millisecond >= 45 && millisecond <= 50 || millisecond >= 55
                            && millisecond <= 60 || millisecond >= 65 && millisecond <= 70 || millisecond >= 75
-                           && millisecond <= 80 || millisecond >= 85 && millisecond <= 90 || millisecond >= 95) {
+                           && millisecond <= 80 || millisecond >= 85 && millisecond <= 90 || millisecond >= 95 && millisecond%100 != 1) {
                        millisecName = " миллисекунд ";
                    }
                    result = hours + hoursName + minutes + minutesName + seconds + secondsName + millisec + millisecName;

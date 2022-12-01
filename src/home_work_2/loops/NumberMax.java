@@ -2,12 +2,13 @@ package home_work_2.loops;
     import java.util.Scanner;
 public class NumberMax {
     public static void main(String[] args) {
-        Scanner scan = new Scanner(System.in);
+        final NumberMax calc = new NumberMax();
+        final Scanner scan = new Scanner(System.in);
         System.out.println("Введите целое натуральное число и мы покажем max цифру");
         if (scan.hasNextLong()) {
             String number = scan.nextLine();
             int max;
-            max = maxValue(String.valueOf(number));
+            max = calc.maxValue(String.valueOf(number));
             System.out.println("Максимальное число = " + max);
         } else {
             System.out.println("Вы ввели не число");
@@ -15,14 +16,14 @@ public class NumberMax {
         }
         System.out.println("____________________________________________________________");
         int totalRes = 0;
-        System.out.println("Из 1000 чисел четных было = " + vareblNum(totalRes));
+        System.out.println("Из 1000 чисел четных было = " + calc.vareblNum(totalRes));
         System.out.println("Таким образом, выясняется, что четные числа генерируются примерно 50/50% с нечетными");
         System.out.println("_____________________________________________________________");
         System.out.println("Введите целое натуральное число и мы покажем, сколько четных и нечетных цифр в числе");
         if(scan.hasNextInt()) {
             String number1 = scan.nextLine();
-            System.out.println("В числе " + number1 + " четных цифр = " + oddOrEvenNumber(number1, "odd"));
-            System.out.println("В числе " + number1 + " нечетных цифр = " + oddOrEvenNumber(number1, "even"));
+            System.out.println("В числе " + number1 + " четных цифр = " + calc.oddOrEvenNumber(number1, "odd"));
+            System.out.println("В числе " + number1 + " нечетных цифр = " + calc.oddOrEvenNumber(number1, "even"));
         }else{
             System.out.println("Вы ввели не число");
             return;
@@ -30,7 +31,7 @@ public class NumberMax {
         System.out.println("Введите длину для ряда Фибоначчи");
         if(scan.hasNextInt()) {
             int numberF = scan.nextInt();
-            System.out.println(fiboLine(numberF));
+            System.out.println(calc.fiboLine(numberF));
         }else{
             System.out.println("Вы ввели не число");
         }
@@ -43,7 +44,7 @@ public class NumberMax {
                 System.out.println("Введите шаг");
                 if(scan.hasNextInt()) {
                     int stepPoint = scan.nextInt();
-                    stepToStep(startPoint, finishPoint, stepPoint);
+                    System.out.println(calc.stepToStep(startPoint, finishPoint, stepPoint));
                 }else{
                     System.out.println("Вы ввели не число");
                 }
@@ -56,7 +57,7 @@ public class NumberMax {
         System.out.println("\nВведите число, и мы его перевернем");
         if(scan.hasNextInt()) {
             int revNum = scan.nextInt();
-            System.out.println("Ваше число " + revNum + " наоборот = " + backNum(revNum));
+            System.out.println("Ваше число " + revNum + " наоборот = " + calc.backNum(revNum));
         }else{
             System.out.println("Вы ввели не число");
         }
@@ -69,7 +70,7 @@ public class NumberMax {
      * @param answer принимает строку
      * @return возвращает максимальное число из заданного в итновом типе.
      */
-    public static Integer maxValue(String answer) {
+    public Integer maxValue(String answer) {
         int max = 0;
         for (int i = 0; i < answer.length(); i++) {
             if (max < Character.getNumericValue(answer.charAt(i))) {
@@ -86,9 +87,8 @@ public class NumberMax {
      * @return возвращает количество четных чисел.
      */
 
-    public static Integer vareblNum(int num1) {
+    public Integer vareblNum(int num1) {
         int totalRes = 0;
-        int result = 0;
         int chi = 1000;
         for (int i = 0; i < chi; i++) {
             int num = (int) (Math.random() * 1000);
@@ -107,7 +107,7 @@ public class NumberMax {
      * @param type   принимает тип odd или even
      * @return результат сложения иттрераций с четными и нечетными числами
      */
-    public static Integer oddOrEvenNumber(String answer, String type) {
+    public Integer oddOrEvenNumber(String answer, String type) {
         int result = 0;
         for (int i = 0; i < answer.length(); i++) {
             if (type == "odd") {
@@ -127,10 +127,10 @@ public class NumberMax {
      * метод fiboLine принимает число, и выводит на его основании количество чисел из ряда Фибоначчи.
      *
      * @param numF принимает число, заданное пользователем
-     * @return
+     * @return строку с результатом
      */
-    public static int fiboLine(int numF) {
-        String end = "end";
+    public String fiboLine(int numF) {
+        String print = "";
         int a = 0;
         int b = 1;
         int c = 0;
@@ -139,10 +139,10 @@ public class NumberMax {
             a = b;
             b = c;
             if(i < numF) {
-                System.out.print(c + " ");
+                print = print +  c + " ";
             }
         }
-        return c;
+        return print + "" + c;
     }
     /**
      * метод stepToStep принимает три значения: начальную точку, конечную точку, и шаг.
@@ -152,25 +152,25 @@ public class NumberMax {
      * @param step
      * @return
      */
-    public static Integer stepToStep(int start, int finish, int step){
+    public String stepToStep(int start, int finish, int step){
+        String print = "";
         while(start < finish){
-
-            if(start+step < finish) {
+            if(start + step < finish) {
                 start = start + step;
-                System.out.print(start + " ");
+                print = print + start + " ";
             }else {
-                System.out.println(finish);
+                print = print + finish;
                 start = finish;
             }
         }
-        return start;
+        return print;
     }
     /**
      * метод принимает Интовое число, в цикле его переворачивает с помощью другой переменной, в которую  и возвращает числа в обратном порядке в перевернутом виде.
      * @param reverseNum принимает число из консоли
      * @return возвращает перевернутое число
      */
-    public static Integer backNum(int reverseNum){
+    public Integer backNum(int reverseNum){
         int reverseNumber = 0;
         while(reverseNum != 0){
             reverseNumber = reverseNumber * 10 + reverseNum% 10;

@@ -4,7 +4,7 @@ import home_work_3.calcs.additional.CalculatorWithCounterAutoSuper;
 
 public class CalculatorWithCounterAutoSuperMain {
     public static void main(String[] args) {
-        CalculatorWithCounterAutoSuper calc = new CalculatorWithCounterAutoSuper();
+        final CalculatorWithCounterAutoSuper calc = new CalculatorWithCounterAutoSuper();
         double stage1;
         double stage2;
         double stage3;
