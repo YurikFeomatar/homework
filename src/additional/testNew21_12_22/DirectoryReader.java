@@ -10,23 +10,22 @@ public class DirectoryReader {
         if (file.isDirectory()) {
             System.out.println("Directory of " + file);
             String[] s = file.list();
-            assert s != null;
-            for (String value : s) {
-                File f = new File(file + "/" + value);
-                if(f.isFile()){
-                    System.out.println(value + " is a file");
-                    object.getFiles();
-                    if (file.isHidden()) {
-                        object.getHiddenFiles();
+            if (s != null) {
+                for (String value : s) {
+                    File f = new File(file + "/" + value);
+                    if (f.isFile()) {
+                        object.getFiles();
+                        if (file.isHidden()) {
+                            object.getHiddenFiles();
+                        }
+                        if (file.getPath().endsWith(".txt")) {
+                            object.getTxtFiles();
+                        }
                     }
-                    if (file.getPath().endsWith(".txt")) {
-                        object.getTxtFiles();
+                    if (file.isDirectory()) {
+                        object.getPack();
+                        fileReader(f);
                     }
-                }
-                if (file.isDirectory()) {
-                    System.out.println(value + " is a directory");
-                    object.getPack();
-                    fileReader(f);
                 }
             }
         }
