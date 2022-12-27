@@ -1,4 +1,4 @@
-package home_work_6;
+package home_work_6.mains;
 
 import home_work_6.api.IReplacer;
 import home_work_6.api.ISearchEngine;
@@ -17,12 +17,11 @@ public class Main2 {
         ISearchEngine easySearch = new EasySearch();
         ISearchEngine regExSearch = new RegExSearch();
         IReplacer replacer = new SearchEnginePunctuationNormalizer();
-        //Pattern pattern = Pattern.compile("/^.*?\\s/");
         String dataText = "";
         String[] dataArray;
         Map<String, Integer> map = new HashMap<>();
         List<Map.Entry<String, Integer>> entryList = null;
-        try (Reader reader = new FileReader("War_and_Peace.txt")) {
+        try (Reader reader = new FileReader("src/home_work_6/War_and_Peace.txt")) {
             StringBuilder builder = new StringBuilder();
 
             int data;
@@ -48,7 +47,7 @@ public class Main2 {
             entryList.sort((o1, o2) -> o2.getValue() - o1.getValue());
 
         } catch (FileNotFoundException e) {
-            System.out.println("Файл не найден" + e.getMessage());
+            System.out.println("Файл не найден " + e.getMessage());
         } catch (IOException e) {
             System.out.println("Ошибка чтения файла");
         } catch (NullPointerException e) {

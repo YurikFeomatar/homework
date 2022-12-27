@@ -7,14 +7,12 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 public class RegExSearch implements ISearchEngine {
-    IReplacer replacer = new SearchEnginePunctuationNormalizer();
     @Override
     public long search(String text, String word) {
-        word =word;
-        long result = 0;
-
-        Pattern pattern = Pattern.compile(word);
-            Matcher matcher = pattern.matcher(replacer.replaceText(text));
+         long result = 0;
+         text = " " + text + " ";
+        Pattern pattern = Pattern.compile("[\\s?\\!?.]" + word + "[!:,.\\s]");
+            Matcher matcher = pattern.matcher(text);
 
             while (matcher.find()){
                 result++;

@@ -1,4 +1,4 @@
-package home_work_6;
+package home_work_6.mains;
 
 import home_work_6.api.IReplacer;
 import home_work_6.utils.SearchEnginePunctuationNormalizer;
@@ -12,12 +12,11 @@ import java.util.*;
 public class Main1 {
     public static void main(String[] args) {
         IReplacer replacer = new SearchEnginePunctuationNormalizer();
-        //Pattern pattern = Pattern.compile("/^.*?\\s/");
         String dataText = "";
         String[] dataArray = new String[0];
         Set<String> wordRare = new HashSet<>();
 
-        try(Reader reader = new FileReader("War_and_Peace.txt")){
+        try(Reader reader = new FileReader("src/home_work_6/War_and_Peace.txt")){
             StringBuilder builder = new StringBuilder();
 
             int data;
@@ -28,7 +27,7 @@ public class Main1 {
             dataText = builder.toString();
             dataText = replacer.replaceText(dataText);
             dataArray = dataText.split(" ");
-            System.out.println("общее количество использованных слов = " + dataArray.length);
+            System.out.println("общее количество использованных слов = " + dataArray.length +"\n");
 
         } catch (FileNotFoundException e){
             System.out.println("Файл не найден " + e.getMessage());
@@ -37,6 +36,6 @@ public class Main1 {
         }
         Collections.addAll(wordRare, dataArray);
         System.out.println(wordRare);
-        System.out.println("количество уникальных слов в коллекции Set = " + wordRare.size());
+        System.out.println("\nколичество уникальных слов в коллекции Set = " + wordRare.size());
     }
 }
