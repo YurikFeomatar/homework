@@ -9,6 +9,7 @@ import java.util.Random;
 import java.util.stream.Collectors;
 
 public class Male extends Person implements IGeneratorName, IGeneratorNickName {
+    private Random rand = new Random();
     private String nickName = "";
     private String password = "";
     private String name = "";
@@ -21,7 +22,8 @@ public class Male extends Person implements IGeneratorName, IGeneratorNickName {
 
     @Override
     public void getNewNameAll() {
-        String alphabet = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
+        String alphabet = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ" +
+                "абвгдеёжзийклмнопрстуфхцчшщъыьэюяАБВГДЕЁЖЗИЙКЛМНОПРСТУФХЦЧШЩЪЫЬЭЮЯ0123456789";
         Random rand = new Random();
         int length = rand.nextInt(10);
         if(length == 0){
@@ -59,23 +61,25 @@ public class Male extends Person implements IGeneratorName, IGeneratorNickName {
 
     @Override
     public void getNewNameFile(){
-        String filePath = "PersonName.txt";
+        String filePath = "src/additional/lists/PersonName.txt";
+        String content = "";
+        String[] dataArray = new String[0];
+        try(Reader reader = new FileReader(filePath)) {
+            StringBuilder builder = new StringBuilder();
+            int data;
 
-        String content = null;
-        try {
-            content = readFile(filePath);
-        } catch (FileNotFoundException e){
-            System.out.println("Файл не найден");
-        }
-        catch (IOException e) {
+            while ((data = reader.read()) != -1) {
+                builder.append(Character.toString(data));
+            }
+            content = builder.toString();
+            content = content.replaceAll(",", "");
+            dataArray = content.split(" ");
+        } catch (IOException e) {
             e.printStackTrace();
         }
-        name = content;
+        name = dataArray[rand.nextInt(dataArray.length)];
     }
-    public static String readFile(String path) throws IOException {
-        BufferedReader reader = new BufferedReader(new FileReader(new File(path)));
-        return reader.lines().collect(Collectors.joining(System.lineSeparator()));
-    }
+
 
     @Override
     public String getName() {
@@ -84,43 +88,33 @@ public class Male extends Person implements IGeneratorName, IGeneratorNickName {
 
     @Override
     public void getNewNickNameAll() {
-        String alphabet = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
-        Random rand = new Random();
-        int length = rand.nextInt(10);
-        if(length == 0){
-            length = rand.nextInt(10);
-        }
-        for (int i = 0; i < length; i++) {
-            char c = alphabet.charAt(rand.nextInt(alphabet.length()));
-            nickName += String.valueOf(c);
-        }
+        getNewNameAll();
     }
 
     @Override
     public void getNewNickNameRus() {
-        String alphabet = "абвгдеёжзийклмнопрстуфхцчшщъыьэюяАБВГДЕЁЖЗИЙКЛМНОПРСТУФХЦЧШЩЪЫЬЭЮЯ";
-        Random rand = new Random();
-        int length = rand.nextInt(10);
-        if(length == 0){
-            length = rand.nextInt(10);
-        }
-        for (int i = 0; i < length; i++) {
-            char c = alphabet.charAt(rand.nextInt(alphabet.length()));
-            nickName += String.valueOf(c);
-        }
+        getNewNameRus();
     }
 
     @Override
     public void getNewNickNameFile() {
-        String filePath = "PersonName.txt";
+        String filePath = "src/additional/lists/PersonName.txt";
+        String content = "";
+        String[] dataArray = new String[0];
+        try(Reader reader = new FileReader(filePath)) {
+            StringBuilder builder = new StringBuilder();
+            int data;
 
-        String content = null;
-        try {
-            content = readFile(filePath);
+            while ((data = reader.read()) != -1) {
+                builder.append(Character.toString(data));
+            }
+            content = builder.toString();
+            content = content.replaceAll(",", "");
+            dataArray = content.split(" ");
         } catch (IOException e) {
             e.printStackTrace();
         }
-        nickName = content;
+        nickName = dataArray[rand.nextInt(dataArray.length)];
     }
 
     @Override

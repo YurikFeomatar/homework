@@ -2,19 +2,19 @@ package additional.lists;
 
 import additional.lists.api.IGeneratorNick;
 
-import java.io.BufferedReader;
-import java.io.File;
-import java.io.FileReader;
-import java.io.IOException;
-import java.util.Objects;
-import java.util.Random;
+import java.io.*;
+import java.util.*;
 import java.util.stream.Collectors;
 
 
 public class Cat extends Animal implements IGeneratorNick {
+    private Random rand = new Random();
     private String nick = "";
     private int age = 0;
 
+    public Cat(int age){
+        this.age = age;
+    }
     public String getNick(){
         return this.nick;
     }
@@ -26,7 +26,8 @@ public class Cat extends Animal implements IGeneratorNick {
 
     @Override
     public void getNewNickAll() {
-        String alphabet = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
+        String alphabet = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ" +
+                "абвгдеёжзийклмнопрстуфхцчшщъыьэюяАБВГДЕЁЖЗИЙКЛМНОПРСТУФХЦЧШЩЪЫЬЭЮЯ0123456789";
         Random rand = new Random();
         int length = rand.nextInt(10);
         if(length == 0){
@@ -54,7 +55,6 @@ public class Cat extends Animal implements IGeneratorNick {
 
     @Override
     public void getNewNickReal(){
-        Random rand = new Random();
         String[] array = new String[]{
                 "Васька","Барсик","Мурзик","Черныш","Батон","Свинона","Жорж",
                 "Пухлий","Лакшери","Элегант","Филя","Псих","Люцифер","Глиста"
@@ -64,20 +64,25 @@ public class Cat extends Animal implements IGeneratorNick {
 
     @Override
     public void getNewNickFile() {
-        String filePath = "AnimalNick.txt";
+        String filePath = "src/additional/lists/AnimalNick.txt";
+        String content = "";
+        String[] dataArray = new String[0];
+        try(Reader reader = new FileReader(filePath)) {
+            StringBuilder builder = new StringBuilder();
+            int data;
 
-        String content = null;
-        try {
-            content = readFile(filePath);
+            while ((data = reader.read()) != -1) {
+                builder.append(Character.toString(data));
+            }
+            content = builder.toString();
+            content = content.replaceAll(",", "");
+            dataArray = content.split(" ");
         } catch (IOException e) {
             e.printStackTrace();
         }
-        nick = content;
+        nick = dataArray[rand.nextInt(dataArray.length)];
     }
-    public static String readFile(String path) throws IOException {
-        BufferedReader reader = new BufferedReader(new FileReader(new File(path)));
-        return reader.lines().collect(Collectors.joining(System.lineSeparator()));
-    }
+
 
     @Override
     public boolean equals(Object o) {

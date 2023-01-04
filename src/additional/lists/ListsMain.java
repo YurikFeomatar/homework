@@ -1,9 +1,12 @@
 package additional.lists;
 
-import java.util.LinkedList;
+
+
+import java.util.*;
 
 public class ListsMain {
     public static void main(String[] args) {
+        final Random rand = new Random();
         {
             Male male1 = new Male();
             male1.getNewNameAll();
@@ -35,29 +38,41 @@ public class ListsMain {
         }
         System.out.println("----------------------------------------------");
         {
-            Cat cat1 = new Cat();
+            Cat cat1 = new Cat(rand.nextInt(20));
             cat1.getNewNickAll();
             System.out.println("Кличка первой кошки : " + cat1.getNick());
         }
         {
-            Cat cat2 = new Cat();
+            Cat cat2 = new Cat(rand.nextInt(20));
             cat2.getNewNickRus();
             System.out.println("Кличка второй кошки : " + cat2.getNick());
         }
         {
-            Cat cat3 = new Cat();
+            Cat cat3 = new Cat(rand.nextInt(20));
             cat3.getNewNickReal();
             System.out.println("Кличка третьей кошки : " + cat3.getNick());
         }
         {
-            Cat cat4 = new Cat();
+            Cat cat4 = new Cat(rand.nextInt(20));
             cat4.getNewNickFile();
             System.out.println("Кличка четвертой кошки : " + cat4.getNick());
         }
-        LinkedList list = new LinkedList();
-        for (int i = 0; i < 1000000; i++) {
-            list.add(new Male());
+        List <Person> list1 = new LinkedList<>();
+        for (int i = 0; i < 1_000_000; i++) {
+            list1.add(new Male());
         }
-        System.out.println(list);
+
+        List <Animal> list2 = new ArrayList<>();
+        for (int i = 0; i < 10; i++) {
+            list2.add(new Cat(rand.nextInt(20)));
+        }
+        System.out.println(list2);
+
+
+
+        Set <Person> list3 = new HashSet<>();
+        for (int i = 0; i < 1_000_000; i++) {
+            list3.add(new Male());
+        }
     }
 }

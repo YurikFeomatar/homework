@@ -1,9 +1,9 @@
 package additional.lists.utils;
 
 
-import additional.lists.api.Comporator;
+import additional.lists.api.IComporator;
 
-public class ComparatorPassword<T> implements Comporator<Integer> {
+public class ComparatorPassword<T> implements IComporator <Integer> {
 
     @Override
     public Integer compare(Integer item1, Integer item2) {
