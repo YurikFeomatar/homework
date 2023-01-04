@@ -15,16 +15,15 @@ public class Male extends Person implements IGeneratorName, IGeneratorNickName {
     private String name = "";
 
     public Male(){
-        getNewNameReal();
-        getNewNickNameAll();
+        //getNewNameReal();
+        //getNewNickNameAll();
     }
 
 
     @Override
     public void getNewNameAll() {
-        String alphabet = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ" +
+        final String alphabet = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ" +
                 "абвгдеёжзийклмнопрстуфхцчшщъыьэюяАБВГДЕЁЖЗИЙКЛМНОПРСТУФХЦЧШЩЪЫЬЭЮЯ0123456789";
-        Random rand = new Random();
         int length = rand.nextInt(10);
         if(length == 0){
             length = rand.nextInt(10);
@@ -37,8 +36,7 @@ public class Male extends Person implements IGeneratorName, IGeneratorNickName {
 
     @Override
     public void getNewNameRus() {
-        String alphabet = "абвгдеёжзийклмнопрстуфхцчшщъыьэюяАБВГДЕЁЖЗИЙКЛМНОПРСТУФХЦЧШЩЪЫЬЭЮЯ";
-        Random rand = new Random();
+        final String alphabet = "абвгдеёжзийклмнопрстуфхцчшщъыьэюяАБВГДЕЁЖЗИЙКЛМНОПРСТУФХЦЧШЩЪЫЬЭЮЯ";
         int length = rand.nextInt(10);
         if(length == 0){
             length = rand.nextInt(10);
@@ -51,8 +49,7 @@ public class Male extends Person implements IGeneratorName, IGeneratorNickName {
 
     @Override
     public void getNewNameReal() {
-        Random rand = new Random();
-        String[] array = new String[]{
+        final String[] array = new String[]{
                 "Вася","Петя","Дима","Коля","Антон","Эдик","Жора",
                 "Максим","Андрей","Витя","Филлип","Кирилл","Люцифер","Бонбон"
         };
@@ -61,9 +58,10 @@ public class Male extends Person implements IGeneratorName, IGeneratorNickName {
 
     @Override
     public void getNewNameFile(){
-        String filePath = "src/additional/lists/PersonName.txt";
+        final String filePath = "src/additional/lists/PersonName.txt";
         String content = "";
         String[] dataArray = new String[0];
+
         try(Reader reader = new FileReader(filePath)) {
             StringBuilder builder = new StringBuilder();
             int data;
@@ -88,17 +86,34 @@ public class Male extends Person implements IGeneratorName, IGeneratorNickName {
 
     @Override
     public void getNewNickNameAll() {
-        getNewNameAll();
+        final String alphabet = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ" +
+                "абвгдеёжзийклмнопрстуфхцчшщъыьэюяАБВГДЕЁЖЗИЙКЛМНОПРСТУФХЦЧШЩЪЫЬЭЮЯ0123456789";
+        int length = rand.nextInt(10);
+        if(length == 0){
+            length = rand.nextInt(10);
+        }
+        for (int i = 0; i < length; i++) {
+            char c = alphabet.charAt(rand.nextInt(alphabet.length()));
+            nickName += String.valueOf(c);
+        }
     }
 
     @Override
     public void getNewNickNameRus() {
-        getNewNameRus();
+        final String alphabet = "абвгдеёжзийклмнопрстуфхцчшщъыьэюяАБВГДЕЁЖЗИЙКЛМНОПРСТУФХЦЧШЩЪЫЬЭЮЯ";
+        int length = rand.nextInt(10);
+        if(length == 0){
+            length = rand.nextInt(10);
+        }
+        for (int i = 0; i < length; i++) {
+            char c = alphabet.charAt(rand.nextInt(alphabet.length()));
+            nickName += String.valueOf(c);
+        }
     }
 
     @Override
     public void getNewNickNameFile() {
-        String filePath = "src/additional/lists/PersonName.txt";
+        final String filePath = "src/additional/lists/PersonName.txt";
         String content = "";
         String[] dataArray = new String[0];
         try(Reader reader = new FileReader(filePath)) {

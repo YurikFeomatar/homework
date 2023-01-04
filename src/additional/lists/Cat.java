@@ -26,9 +26,8 @@ public class Cat extends Animal implements IGeneratorNick {
 
     @Override
     public void getNewNickAll() {
-        String alphabet = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ" +
+        final String alphabet = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ" +
                 "абвгдеёжзийклмнопрстуфхцчшщъыьэюяАБВГДЕЁЖЗИЙКЛМНОПРСТУФХЦЧШЩЪЫЬЭЮЯ0123456789";
-        Random rand = new Random();
         int length = rand.nextInt(10);
         if(length == 0){
             length = rand.nextInt(10);
@@ -41,8 +40,7 @@ public class Cat extends Animal implements IGeneratorNick {
 
     @Override
     public void getNewNickRus() {
-        String alphabet = "абвгдеёжзийклмнопрстуфхцчшщъыьэюяАБВГДЕЁЖЗИЙКЛМНОПРСТУФХЦЧШЩЪЫЬЭЮЯ";
-        Random rand = new Random();
+        final String alphabet = "абвгдеёжзийклмнопрстуфхцчшщъыьэюяАБВГДЕЁЖЗИЙКЛМНОПРСТУФХЦЧШЩЪЫЬЭЮЯ";
         int length = rand.nextInt(10);
         if(length == 0){
             length = rand.nextInt(10);
@@ -55,7 +53,7 @@ public class Cat extends Animal implements IGeneratorNick {
 
     @Override
     public void getNewNickReal(){
-        String[] array = new String[]{
+        final String[] array = new String[]{
                 "Васька","Барсик","Мурзик","Черныш","Батон","Свинона","Жорж",
                 "Пухлий","Лакшери","Элегант","Филя","Псих","Люцифер","Глиста"
         };
@@ -64,7 +62,7 @@ public class Cat extends Animal implements IGeneratorNick {
 
     @Override
     public void getNewNickFile() {
-        String filePath = "src/additional/lists/AnimalNick.txt";
+        final String filePath = "src/additional/lists/AnimalNick.txt";
         String content = "";
         String[] dataArray = new String[0];
         try(Reader reader = new FileReader(filePath)) {
