@@ -15,3 +15,6 @@ utils.WriterFile.java
 mains.Main3.java
 tests.TestISearchEngine.java
 
+                            8
+Mains.Task8.java
+
